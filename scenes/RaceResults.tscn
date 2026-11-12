@@ -1,0 +1,148 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/race_results.gd" id="1_results"]
+
+[sub_resource type="StyleBoxFlat" id="PanelStyle"]
+bg_color = Color(0.045, 0.05, 0.07, 0.97)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.46, 0.58, 0.35)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="RaceResults" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_results")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.66)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 32
+
+[node name="Content" type="VBoxContainer" parent="Center/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="Center/Panel/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 34
+text = "RISULTATI"
+horizontal_alignment = 1
+
+[node name="Context" type="Label" parent="Center/Panel/Margin/Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.66, 0.71, 0.8, 1)
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+
+[node name="FirstRow" type="HBoxContainer" parent="Center/Panel/Margin/Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="FirstPos" type="Label" parent="Center/Panel/Margin/Content/FirstRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.3, 1)
+theme_override_font_sizes/font_size = 22
+text = "1°"
+
+[node name="FirstName" type="Label" parent="Center/Panel/Margin/Content/FirstRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.92, 0.94, 1, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="FirstTime" type="Label" parent="Center/Panel/Margin/Content/FirstRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.3, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="SecondRow" type="HBoxContainer" parent="Center/Panel/Margin/Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SecondPos" type="Label" parent="Center/Panel/Margin/Content/SecondRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.66, 0.71, 0.8, 1)
+theme_override_font_sizes/font_size = 22
+text = "2°"
+
+[node name="SecondName" type="Label" parent="Center/Panel/Margin/Content/SecondRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.82, 0.85, 0.92, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="SecondTime" type="Label" parent="Center/Panel/Margin/Content/SecondRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.85, 0.92, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="Outcome" type="Label" parent="Center/Panel/Margin/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="Prize" type="Label" parent="Center/Panel/Margin/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.85, 0.55, 1)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="AdvanceButton" type="Button" parent="Center/Panel/Margin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "Avanti"
+
+[node name="MenuButton" type="Button" parent="Center/Panel/Margin/Content"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Menu"
+
+[connection signal="pressed" from="Center/Panel/Margin/Content/AdvanceButton" to="." method="_on_advance_button_pressed"]
+[connection signal="pressed" from="Center/Panel/Margin/Content/MenuButton" to="." method="_on_menu_button_pressed"]

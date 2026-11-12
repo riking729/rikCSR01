@@ -1,0 +1,24 @@
+Cars Pack (2018) by Quaternius
+https://quaternius.com/packs/cars.html
+License: CC0 1.0 Universal (Public Domain Dedication)
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Models included (free set, 7 cars):
+- Coupe (SportsCar2) - coupe.glb
+- Police Car (Cop) - police_car.glb
+- Sedan (NormalCar1) - sedan.glb
+- Sports Car (SportsCar) - sports_car.glb
+- City Car (NormalCar2) - city_car.glb
+- Taxi - taxi.glb
+- SUV - suv.glb
+
+Downloaded 2026-11-11 from the Poly Pizza mirror of the Quaternius Cars Bundle:
+https://poly.pizza/bundle/Cars-Bundle-FE5IWe6OMk
+The pack contains 8 cars in total; the eighth (police SUV) is Patreon-exclusive and was not downloaded.
+
+The models are used unmodified (GLB format) in scenes CarCoupe.tscn, CarSports.tscn,
+CarSedan.tscn, CarCity.tscn, CarPolice.tscn, CarTaxi.tscn and CarSUV.tscn.
+No real brands or trademarks are reproduced; the cars are generic low-poly designs.
+
+CC0 allows personal, educational and commercial use without attribution.
+Credit to Quaternius is appreciated but not required.

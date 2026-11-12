@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://models/race-car.glb" id="1_model"]
+[ext_resource type="Script" path="res://scripts/wheels.gd" id="2_wheels"]
+
+[node name="Car" type="Node3D"]
+script = ExtResource("2_wheels")
+wheel_paths = Array[NodePath]([NodePath("Model/race-car/race-car_wheel_front_l"), NodePath("Model/race-car/race-car_wheel_front_r"), NodePath("Model/race-car/race-car_wheel_rear_l"), NodePath("Model/race-car/race-car_wheel_rear_r")])
+wheel_radius = 0.35
+
+[node name="Model" parent="." instance=ExtResource("1_model")]

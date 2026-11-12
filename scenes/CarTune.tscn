@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/car_tune.gd" id="1_tune"]
+
+[node name="CarTune" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tune")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -300.0
+offset_right = 440.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Title" type="Label" parent="Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "MODIFICA AUTO"
+horizontal_alignment = 1
+
+[node name="CarLabel" type="Label" parent="Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.3, 1)
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="OpponentLabel" type="Label" parent="Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.66, 0.71, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+
+[node name="CreditsLabel" type="Label" parent="Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="Stats" type="VBoxContainer" parent="Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Message" type="Label" parent="Menu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.62, 0.3, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="Menu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "Avvia gara"
+
+[node name="SeriesButton" type="Button" parent="Menu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "Serie di gare"
+
+[node name="BackButton" type="Button" parent="Menu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Indietro"
+
+[connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Menu/SeriesButton" to="." method="_on_series_button_pressed"]
+[connection signal="pressed" from="Menu/BackButton" to="." method="_on_back_button_pressed"]

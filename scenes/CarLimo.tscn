@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://models/limousine.glb" id="1_model"]
+[ext_resource type="Script" path="res://scripts/wheels.gd" id="2_wheels"]
+
+[node name="Car" type="Node3D"]
+script = ExtResource("2_wheels")
+wheel_paths = Array[NodePath]([NodePath("Model/limousine/limousine_wheel_fl"), NodePath("Model/limousine/limousine_wheel_fr"), NodePath("Model/limousine/limousine_wheel_rl"), NodePath("Model/limousine/limousine_wheel_rr")])
+wheel_radius = 0.36
+
+[node name="Model" parent="." instance=ExtResource("1_model")]

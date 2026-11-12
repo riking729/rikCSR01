@@ -1,0 +1,10 @@
+Car showcase photos (coupe.jpg, sports.jpg, ... taxi_modern.jpg)
+59 photos rendered in-engine on 2026-11-11 from the game's own car models,
+inside the CarSelect garage scene with its lighting, using one showcase angle
+per car.
+
+The car models are CC0 assets; see models/CREDITS.txt (Grab3D) and
+models/quaternius/CREDITS.txt (Quaternius). These renders are derivative
+images of those models and are covered by the same CC0 license.
+
+One photo (coupe.jpg) reflects the current in-game paint of the coupe.

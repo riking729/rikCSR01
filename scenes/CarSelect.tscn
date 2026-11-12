@@ -1,0 +1,391 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://scripts/car_select.gd" id="1_select"]
+
+[sub_resource type="Environment" id="GarageEnv"]
+background_mode = 1
+background_color = Color(0.02, 0.023, 0.032, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.78, 0.82, 0.9, 1)
+ambient_light_energy = 0.8
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 0.35
+glow_bloom = 0.05
+
+[sub_resource type="StandardMaterial3D" id="FloorMat"]
+albedo_color = Color(0.07, 0.073, 0.082, 1)
+metallic = 0.35
+roughness = 0.4
+
+[sub_resource type="StandardMaterial3D" id="WallMat"]
+albedo_color = Color(0.03, 0.032, 0.04, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="TrimMat"]
+albedo_color = Color(0.09, 0.095, 0.11, 1)
+metallic = 0.6
+roughness = 0.35
+
+[sub_resource type="StandardMaterial3D" id="TurntableMat"]
+albedo_color = Color(0.1, 0.105, 0.115, 1)
+metallic = 0.35
+roughness = 0.42
+
+[sub_resource type="StandardMaterial3D" id="GoldMat"]
+albedo_color = Color(1, 0.78, 0.3, 1)
+emission_enabled = true
+emission = Color(1, 0.62, 0.15, 1)
+emission_energy_multiplier = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StripMat"]
+albedo_color = Color(1, 1, 1, 1)
+emission_enabled = true
+emission = Color(0.9, 0.95, 1, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="PlaneMesh" id="FloorMesh"]
+size = Vector2(36, 32)
+
+[sub_resource type="BoxMesh" id="BackWallMesh"]
+size = Vector3(20, 7, 0.25)
+
+[sub_resource type="BoxMesh" id="SideWallMesh"]
+size = Vector3(0.25, 7, 16)
+
+[sub_resource type="BoxMesh" id="CeilingMesh"]
+size = Vector3(20, 0.25, 16)
+
+[sub_resource type="CylinderMesh" id="TurntableMesh"]
+top_radius = 3.0
+bottom_radius = 3.0
+height = 0.14
+radial_segments = 64
+
+[sub_resource type="TorusMesh" id="RingMesh"]
+inner_radius = 3.02
+outer_radius = 3.07
+rings = 64
+ring_segments = 12
+
+[sub_resource type="BoxMesh" id="StripMesh"]
+size = Vector3(7.2, 0.06, 0.08)
+
+[sub_resource type="BoxMesh" id="ColumnMesh"]
+size = Vector3(0.6, 7, 0.6)
+
+[sub_resource type="BoxMesh" id="PanelLineMesh"]
+size = Vector3(16, 0.05, 0.04)
+
+[node name="CarSelect" type="Node3D"]
+script = ExtResource("1_select")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("GarageEnv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(4.6, 1.85, 5.8)
+fov = 30.0
+current = true
+
+[node name="Garage" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Garage"]
+position = Vector3(0, 0, -2)
+mesh = SubResource("FloorMesh")
+material_override = SubResource("FloorMat")
+
+[node name="BackWall" type="MeshInstance3D" parent="Garage"]
+position = Vector3(0, 3.5, -7.4)
+mesh = SubResource("BackWallMesh")
+material_override = SubResource("WallMat")
+
+[node name="SideWallLeft" type="MeshInstance3D" parent="Garage"]
+position = Vector3(-10, 3.5, -2)
+mesh = SubResource("SideWallMesh")
+material_override = SubResource("WallMat")
+
+[node name="SideWallRight" type="MeshInstance3D" parent="Garage"]
+position = Vector3(10, 3.5, -2)
+mesh = SubResource("SideWallMesh")
+material_override = SubResource("WallMat")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Garage"]
+position = Vector3(0, 7, -2)
+mesh = SubResource("CeilingMesh")
+material_override = SubResource("WallMat")
+
+[node name="ColumnLeft" type="MeshInstance3D" parent="Garage"]
+position = Vector3(-8.2, 3.5, -4.6)
+mesh = SubResource("ColumnMesh")
+material_override = SubResource("TrimMat")
+
+[node name="ColumnRight" type="MeshInstance3D" parent="Garage"]
+position = Vector3(8.2, 3.5, -4.6)
+mesh = SubResource("ColumnMesh")
+material_override = SubResource("TrimMat")
+
+[node name="PanelLine1" type="MeshInstance3D" parent="Garage"]
+position = Vector3(0, 1.2, -7.24)
+mesh = SubResource("PanelLineMesh")
+material_override = SubResource("TrimMat")
+
+[node name="PanelLine2" type="MeshInstance3D" parent="Garage"]
+position = Vector3(0, 2.2, -7.24)
+mesh = SubResource("PanelLineMesh")
+material_override = SubResource("TrimMat")
+
+[node name="PanelLine3" type="MeshInstance3D" parent="Garage"]
+position = Vector3(0, 3.2, -7.24)
+mesh = SubResource("PanelLineMesh")
+material_override = SubResource("TrimMat")
+
+[node name="PanelLine4" type="MeshInstance3D" parent="Garage"]
+position = Vector3(0, 4.2, -7.24)
+mesh = SubResource("PanelLineMesh")
+material_override = SubResource("TrimMat")
+
+[node name="PanelLine5" type="MeshInstance3D" parent="Garage"]
+position = Vector3(0, 5.2, -7.24)
+mesh = SubResource("PanelLineMesh")
+material_override = SubResource("TrimMat")
+
+[node name="Turntable" type="MeshInstance3D" parent="Garage"]
+position = Vector3(0, -0.07, 0)
+mesh = SubResource("TurntableMesh")
+material_override = SubResource("TurntableMat")
+
+[node name="Ring" type="MeshInstance3D" parent="Garage"]
+position = Vector3(0, 0.012, 0)
+mesh = SubResource("RingMesh")
+material_override = SubResource("GoldMat")
+
+[node name="LightBars" type="Node3D" parent="Garage"]
+
+[node name="Bar1" type="MeshInstance3D" parent="Garage/LightBars"]
+position = Vector3(0, 6.82, -6)
+mesh = SubResource("StripMesh")
+material_override = SubResource("StripMat")
+
+[node name="Bar2" type="MeshInstance3D" parent="Garage/LightBars"]
+position = Vector3(0, 6.82, -3.5)
+mesh = SubResource("StripMesh")
+material_override = SubResource("StripMat")
+
+[node name="Bar3" type="MeshInstance3D" parent="Garage/LightBars"]
+position = Vector3(0, 6.82, -1)
+mesh = SubResource("StripMesh")
+material_override = SubResource("StripMat")
+
+[node name="Bar4" type="MeshInstance3D" parent="Garage/LightBars"]
+position = Vector3(0, 6.82, 1.5)
+mesh = SubResource("StripMesh")
+material_override = SubResource("StripMat")
+
+[node name="Bar5" type="MeshInstance3D" parent="Garage/LightBars"]
+position = Vector3(-3, 6.82, -2.2)
+rotation_degrees = Vector3(0, 90, 0)
+mesh = SubResource("StripMesh")
+material_override = SubResource("StripMat")
+
+[node name="Bar6" type="MeshInstance3D" parent="Garage/LightBars"]
+position = Vector3(3, 6.82, -2.2)
+rotation_degrees = Vector3(0, 90, 0)
+mesh = SubResource("StripMesh")
+material_override = SubResource("StripMat")
+
+[node name="KeyLight" type="SpotLight3D" parent="."]
+position = Vector3(3.4, 6.3, 3.4)
+light_color = Color(1, 0.95, 0.88, 1)
+light_energy = 6.0
+shadow_enabled = true
+spot_range = 18.0
+spot_angle = 42.0
+
+[node name="RimLightLeft" type="SpotLight3D" parent="."]
+position = Vector3(-5.5, 3.2, -3.5)
+light_color = Color(0.55, 0.7, 1, 1)
+light_energy = 4.0
+spot_range = 14.0
+spot_angle = 55.0
+
+[node name="RimLightRight" type="SpotLight3D" parent="."]
+position = Vector3(5.8, 2.4, -2.8)
+light_color = Color(1, 0.62, 0.32, 1)
+light_energy = 3.0
+spot_range = 14.0
+spot_angle = 55.0
+
+[node name="FillLight" type="OmniLight3D" parent="."]
+position = Vector3(0, 4.8, 2)
+light_color = Color(1, 0.9, 0.8, 1)
+light_energy = 1.2
+omni_range = 16.0
+
+[node name="BackWash" type="SpotLight3D" parent="."]
+position = Vector3(0, 5.6, 2)
+light_color = Color(1, 0.78, 0.48, 1)
+light_energy = 2.0
+spot_range = 22.0
+spot_angle = 55.0
+
+[node name="Stage" type="Node3D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Screen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Header" type="VBoxContainer" parent="UI/Screen"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 26.0
+offset_right = 360.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Eyebrow" type="Label" parent="UI/Screen/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.65, 0.74, 1)
+theme_override_font_sizes/font_size = 13
+text = "SCEGLI L'AUTO"
+horizontal_alignment = 1
+
+[node name="CarName" type="Label" parent="UI/Screen/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.3, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.55, 0.1, 0.35)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 46
+text = "Coupé"
+horizontal_alignment = 1
+
+[node name="Opponent" type="Label" parent="UI/Screen/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.67, 0.75, 1)
+theme_override_font_sizes/font_size = 15
+text = "Avversario: SUV"
+horizontal_alignment = 1
+
+[node name="Wallet" type="Label" parent="UI/Screen/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.8, 0.56, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.75)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 15
+text = "CR$ 10.000   ·   CR Gold 50"
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="UI/Screen/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.62, 0.3, 1)
+theme_override_font_sizes/font_size = 13
+text = ""
+horizontal_alignment = 1
+
+[node name="PrevButton" type="Button" parent="UI/Screen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -80.0
+offset_right = 114.0
+offset_bottom = 80.0
+grow_vertical = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 54
+text = "<"
+
+[node name="NextButton" type="Button" parent="UI/Screen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -80.0
+offset_right = -30.0
+offset_bottom = 80.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 54
+text = ">"
+
+[node name="Footer" type="VBoxContainer" parent="UI/Screen"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -206.0
+offset_right = 260.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="SelectButton" type="Button" parent="UI/Screen/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 56)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Seleziona"
+
+[node name="PaintButton" type="Button" parent="UI/Screen/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Colori"
+
+[node name="BackButton" type="Button" parent="UI/Screen/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Indietro"
+
+[node name="Hint" type="Label" parent="UI/Screen/Footer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.49, 0.57, 1)
+theme_override_font_sizes/font_size = 12
+text = "Frecce sinistra/destra per cambiare auto"
+horizontal_alignment = 1
+
+[node name="Fade" type="ColorRect" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="UI/Screen/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="UI/Screen/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="UI/Screen/Footer/SelectButton" to="." method="_on_select_button_pressed"]
+[connection signal="pressed" from="UI/Screen/Footer/PaintButton" to="." method="_on_paint_button_pressed"]
+[connection signal="pressed" from="UI/Screen/Footer/BackButton" to="." method="_on_back_button_pressed"]

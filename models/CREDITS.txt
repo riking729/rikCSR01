@@ -1,0 +1,138 @@
+GRAB3D VEHICLES - CREDITS AND LICENSES
+======================================
+
+52 generic cars downloaded on 2026-11-11 from Grab3D, all at the root of
+this folder (47 from the first page, 5 from the second page).
+Publisher / author: Grab3D (https://grab3d.com/, info@grab3d.com)
+License: CC0 1.0 Universal (public domain dedication)
+https://creativecommons.org/publicdomain/zero/1.0/
+The model pages state: "Free under CC0 for personal and commercial use,
+no attribution." Attribution is not required; it is given here anyway.
+
+Models included (GLB, at the root of this folder):
+
+  1950s-pickup-truck.glb
+    "1950s Pickup Truck"
+    Source: https://grab3d.com/models/vehicles/1950s-pickup-truck/
+
+  1950s-roadster.glb
+    "1950s Roadster"
+    Source: https://grab3d.com/models/vehicles/1950s-roadster/
+
+  1950s-sedan.glb
+    "1950s Sedan"
+    Source: https://grab3d.com/models/vehicles/1950s-sedan/
+
+  1950s-station-wagon.glb
+    "1950s Station Wagon"
+    Source: https://grab3d.com/models/vehicles/1950s-station-wagon/
+
+  1960s-compact-car.glb
+    "1960s Compact Car"
+    Source: https://grab3d.com/models/vehicles/1960s-compact-car/
+
+  1960s-convertible.glb
+    "1960s Convertible"
+    Source: https://grab3d.com/models/vehicles/1960s-convertible/
+
+  1960s-microbus.glb
+    "1960s Microbus"
+    Source: https://grab3d.com/models/vehicles/1960s-microbus/
+
+  1960s-sports-car.glb
+    "1960s Sports Car"
+    Source: https://grab3d.com/models/vehicles/1960s-sports-car/
+
+  1970s-coupe.glb
+    "1970s Coupe"
+    Source: https://grab3d.com/models/vehicles/1970s-coupe/
+
+  1970s-hatchback.glb
+    "1970s Hatchback"
+    Source: https://grab3d.com/models/vehicles/1970s-hatchback/
+
+  1970s-pickup-truck.glb
+    "1970s Pickup Truck"
+    Source: https://grab3d.com/models/vehicles/1970s-pickup-truck/
+
+  1970s-sedan.glb
+    "1970s Sedan"
+    Source: https://grab3d.com/models/vehicles/1970s-sedan/
+
+  1980s-hatchback.glb
+    "1980s Hatchback"
+    Source: https://grab3d.com/models/vehicles/1980s-hatchback/
+
+  1980s-sedan.glb
+    "1980s Sedan"
+    Source: https://grab3d.com/models/vehicles/1980s-sedan/
+
+  1980s-sports-car.glb
+    "1980s Sports Car"
+    Source: https://grab3d.com/models/vehicles/1980s-sports-car/
+
+Each model was downloaded in GLB format together with its own JPG textures
+(body basecolor, metallic/roughness, normal, tyre color, tyre normal), placed
+beside the .glb file.
+
+32 more models, downloaded on 2026-11-11 (textures stored beside each GLB):
+
+  1980s-station-wagon.glb   "1980s Station Wagon"   /models/vehicles/1980s-station-wagon/
+  1980s-van.glb             "1980s Van"             /models/vehicles/1980s-van/
+  1990s-compact-car.glb     "1990s Compact Car"     /models/vehicles/1990s-compact-car/
+  1990s-delivery-van.glb    "1990s Delivery Van"    /models/vehicles/1990s-delivery-van/
+  1990s-hatchback.glb       "1990s Hatchback"       /models/vehicles/1990s-hatchback/
+  1990s-minivan.glb         "1990s Minivan"         /models/vehicles/1990s-minivan/
+  1990s-off-roader.glb      "1990s Off-Roader"      /models/vehicles/1990s-off-roader/
+  1990s-pickup-truck.glb    "1990s Pickup Truck"    /models/vehicles/1990s-pickup-truck/
+  1990s-police-car.glb      "1990s Police Car"      /models/vehicles/1990s-police-car/
+  1990s-sedan.glb           "1990s Sedan"           /models/vehicles/1990s-sedan/
+  1990s-sports-car.glb      "1990s Sports Car"      /models/vehicles/1990s-sports-car/
+  1990s-station-wagon.glb   "1990s Station Wagon"   /models/vehicles/1990s-station-wagon/
+  1990s-suv.glb             "1990s SUV"             /models/vehicles/1990s-suv/
+  1990s-taxi.glb            "1990s Taxi"            /models/vehicles/1990s-taxi/
+  atomic-age-car.glb        "Atomic Age Car"        /models/vehicles/atomic-age-car/
+  classic-car.glb           "Classic Car"           /models/vehicles/classic-car/
+  compact-car.glb           "Compact Car"           /models/vehicles/compact-car/
+  convertible.glb           "Convertible"           /models/vehicles/convertible/
+  coupe.glb                 "Coupe"                 /models/vehicles/coupe/
+  dune-buggy.glb            "Dune Buggy"            /models/vehicles/dune-buggy/
+  electric-car.glb          "Electric Car"          /models/vehicles/electric-car/
+  hatchback.glb             "Hatchback"             /models/vehicles/hatchback/
+  hover-car.glb             "Hover Car"             /models/vehicles/hover-car/
+  limousine.glb             "Limousine"             /models/vehicles/limousine/
+  lowrider.glb              "Lowrider"              /models/vehicles/lowrider/
+  microcar.glb              "Microcar"              /models/vehicles/microcar/
+  minivan.glb               "Minivan"               /models/vehicles/minivan/
+  muscle-car.glb            "Muscle Car"            /models/vehicles/muscle-car/
+  police-car.glb            "Police Car"            /models/vehicles/police-car/
+  rally-car.glb             "Rally Car"             /models/vehicles/rally-car/
+  station-wagon.glb         "Station Wagon"         /models/vehicles/station-wagon/
+  tuk-tuk.glb               "Tuk Tuk"               /models/vehicles/tuk-tuk/
+
+5 more models from the second page, downloaded on 2026-11-11 (textures stored
+beside each GLB):
+
+  race-car.glb              "Race Car"              /models/vehicles/race-car/
+  sedan.glb                 "Sedan"                 /models/vehicles/sedan/
+  sports-car.glb            "Sports Car"            /models/vehicles/sports-car/
+  suv.glb                   "SUV"                   /models/vehicles/suv/
+  taxi.glb                  "Taxi"                  /models/vehicles/taxi/
+
+The Source URLs above are relative to https://grab3d.com
+(e.g. https://grab3d.com/models/vehicles/tuk-tuk/).
+The "Sports Car Cockpit" model from the same page is an interior-only
+asset with no wheels, so it was deliberately not included.
+
+Changes made for the game:
+  - Imported in Godot 4 as GLB (embedded materials, external textures kept).
+  - Wheels are separate nodes (<model>_wheel_fl/fr/rl/rr) and are rotated
+    directly by scripts/wheels.gd. The Tuk Tuk has three wheels
+    (_wheel_f, _wheel_rl, _wheel_rr); the Hover Car has no wheels.
+    The Race Car names them _wheel_front_l/front_r/rear_l/rear_r.
+  - Scene scale/offset: none needed (models are in metres, centred at the
+    origin, resting at y=0, front pointing to +Z like the other cars).
+  - No model was modified; materials and textures are the originals.
+
+All models are generic vehicles: they carry no manufacturer badges,
+logos or trademarks.

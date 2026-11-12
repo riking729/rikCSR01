@@ -1,0 +1,18 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Salvataggi locali del gioco
+/settings.cfg
+/garage.cfg
+/paint.cfg
+/series.cfg
+/daily_reward.cfg
+/desktop_shortcut.cfg
+
+# Build esportate e log
+/releases/
+*.exe
+*.pck
+*.log
+/tmp_loc/

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://models/quaternius/coupe.glb" id="1_model"]
+[ext_resource type="Script" path="res://scripts/wheels.gd" id="2_wheels"]
+
+[node name="Car" type="Node3D"]
+script = ExtResource("2_wheels")
+wheel_paths = Array[NodePath]([NodePath("Model/SportsCar2_BackWheels_Cylinder_002"), NodePath("Model/SportsCar2_FrontLeftWheel_Cylinder_017"), NodePath("Model/SportsCar2_FrontRightWheel_Cylinder_018")])
+wheel_radius = 0.2804
+
+[node name="Model" parent="." instance=ExtResource("1_model")]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://models/1980s-sports-car.glb" id="1_model"]
+[ext_resource type="Script" path="res://scripts/wheels.gd" id="2_wheels"]
+
+[node name="Car" type="Node3D"]
+script = ExtResource("2_wheels")
+wheel_paths = Array[NodePath]([NodePath("Model/1980s-sports-car/1980s-sports-car_wheel_fl"), NodePath("Model/1980s-sports-car/1980s-sports-car_wheel_fr"), NodePath("Model/1980s-sports-car/1980s-sports-car_wheel_rl"), NodePath("Model/1980s-sports-car/1980s-sports-car_wheel_rr")])
+wheel_radius = 0.31
+
+[node name="Model" parent="." instance=ExtResource("1_model")]

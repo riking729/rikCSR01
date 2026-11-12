@@ -1,0 +1,317 @@
+[gd_scene load_steps=22 format=3]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_game"]
+[ext_resource type="Shader" path="res://shaders/finish_line.gdshader" id="8_finish"]
+[ext_resource type="PackedScene" path="res://scenes/RaceResults.tscn" id="9_results"]
+[ext_resource type="Shader" path="res://shaders/road_dash.gdshader" id="3_dash"]
+[ext_resource type="Script" path="res://scripts/city.gd" id="4_city"]
+[ext_resource type="Script" path="res://scripts/dashboard.gd" id="5_dashboard"]
+[ext_resource type="Script" path="res://scripts/engine_audio.gd" id="6_engine"]
+[ext_resource type="Script" path="res://scripts/beach.gd" id="7_beach"]
+[ext_resource type="Script" path="res://scripts/jungle.gd" id="10_jungle"]
+[ext_resource type="Script" path="res://scripts/mountain.gd" id="11_mountain"]
+[ext_resource type="Script" path="res://scripts/finish_gate.gd" id="12_gate"]
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 1
+background_color = Color(0.11, 0.11, 0.12, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.6, 0.6, 0.62, 1)
+ambient_light_energy = 0.8
+
+[sub_resource type="PlaneMesh" id="RoadMesh"]
+size = Vector2(8, 440)
+
+[sub_resource type="StandardMaterial3D" id="AsphaltMaterial"]
+albedo_color = Color(0.13, 0.13, 0.14, 1)
+roughness = 0.95
+
+[sub_resource type="PlaneMesh" id="CenterLineMesh"]
+size = Vector2(0.15, 440)
+
+[sub_resource type="PlaneMesh" id="EdgeLineMesh"]
+size = Vector2(0.15, 440)
+
+[sub_resource type="PlaneMesh" id="StartLineMesh"]
+size = Vector2(8, 0.5)
+
+[sub_resource type="PlaneMesh" id="FinishLineMesh"]
+size = Vector2(8, 1.4)
+
+[sub_resource type="StandardMaterial3D" id="LineMaterial"]
+albedo_color = Color(0.92, 0.92, 0.92, 1)
+roughness = 0.6
+
+[sub_resource type="ShaderMaterial" id="DashMaterial"]
+shader = ExtResource("3_dash")
+shader_parameter/line_color = Color(0.92, 0.92, 0.92, 1)
+shader_parameter/dash_length = 3.0
+shader_parameter/gap_length = 6.0
+
+[sub_resource type="ShaderMaterial" id="FinishLineMaterial"]
+shader = ExtResource("8_finish")
+
+[sub_resource type="BoxShape3D" id="RoadShape"]
+size = Vector3(8, 0.4, 440)
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_game")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-45, -30, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(3.2, 2.2, 4.6)
+rotation_degrees = Vector3(-15.9, 35, 0)
+
+[node name="IntroCamera" type="Camera3D" parent="."]
+fov = 50.0
+current = false
+
+[node name="Road" type="StaticBody3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Road"]
+mesh = SubResource("RoadMesh")
+surface_material_override/0 = SubResource("AsphaltMaterial")
+
+[node name="Collision" type="CollisionShape3D" parent="Road"]
+position = Vector3(0, -0.2, 0)
+shape = SubResource("RoadShape")
+
+[node name="CenterLine" type="MeshInstance3D" parent="Road"]
+position = Vector3(0, 0.01, 0)
+mesh = SubResource("CenterLineMesh")
+surface_material_override/0 = SubResource("DashMaterial")
+
+[node name="EdgeLineLeft" type="MeshInstance3D" parent="Road"]
+position = Vector3(-3.9, 0.01, 0)
+mesh = SubResource("EdgeLineMesh")
+surface_material_override/0 = SubResource("LineMaterial")
+
+[node name="EdgeLineRight" type="MeshInstance3D" parent="Road"]
+position = Vector3(3.9, 0.01, 0)
+mesh = SubResource("EdgeLineMesh")
+surface_material_override/0 = SubResource("LineMaterial")
+
+[node name="StartLine" type="MeshInstance3D" parent="Road"]
+position = Vector3(0, 0.012, 2.5)
+mesh = SubResource("StartLineMesh")
+surface_material_override/0 = SubResource("LineMaterial")
+
+[node name="FinishLine" type="MeshInstance3D" parent="Road"]
+position = Vector3(0, 0.013, 185)
+mesh = SubResource("FinishLineMesh")
+surface_material_override/0 = SubResource("FinishLineMaterial")
+
+[node name="FinishGate" type="Node3D" parent="Road"]
+position = Vector3(0, 0, 185)
+script = ExtResource("12_gate")
+
+[node name="Beach" type="Node3D" parent="."]
+visible = false
+script = ExtResource("7_beach")
+
+[node name="Jungle" type="Node3D" parent="."]
+visible = false
+script = ExtResource("10_jungle")
+
+[node name="Mountain" type="Node3D" parent="."]
+visible = false
+script = ExtResource("11_mountain")
+
+[node name="City" type="Node3D" parent="."]
+script = ExtResource("4_city")
+
+[node name="EngineAudio" type="Node" parent="."]
+script = ExtResource("6_engine")
+
+[node name="Engine" type="AudioStreamPlayer" parent="EngineAudio"]
+volume_db = -18.0
+
+[node name="Shift" type="AudioStreamPlayer" parent="EngineAudio"]
+volume_db = -4.0
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Dashboard" type="Control" parent="HUD"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_dashboard")
+
+[node name="Countdown" type="Label" parent="HUD"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 6
+theme_override_font_sizes/font_size = 140
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RaceTimer" type="Label" parent="HUD"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -230.0
+offset_top = 18.0
+offset_right = -24.0
+offset_bottom = 66.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 0.78, 0.3, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 30
+text = "0,00 s"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RaceResults" parent="HUD" instance=ExtResource("9_results")]
+unique_name_in_owner = true
+
+[node name="Intro" type="Control" parent="HUD"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Content" type="Control" parent="HUD/Intro"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="ColorRect" parent="HUD/Intro/Content"]
+anchor_right = 1.0
+offset_bottom = 86.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.82)
+
+[node name="BottomBar" type="ColorRect" parent="HUD/Intro/Content"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.82)
+
+[node name="BadgePanel" type="ColorRect" parent="HUD/Intro/Content"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -380.0
+offset_top = 86.0
+offset_right = 380.0
+offset_bottom = 224.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.38)
+
+[node name="Badge" type="Label" parent="HUD/Intro/Content"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 90.0
+offset_right = 300.0
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.3, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 6
+theme_override_font_sizes/font_size = 78
+text = "1v1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="HUD/Intro/Content"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 186.0
+offset_right = 360.0
+offset_bottom = 220.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.8, 0.83, 0.9, 1)
+theme_override_font_sizes/font_size = 20
+text = "LIVELLO 1 · CLASSICHE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Names" type="HBoxContainer" parent="HUD/Intro/Content"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -560.0
+offset_top = -202.0
+offset_right = 560.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+theme_override_constants/separation = 34
+
+[node name="PlayerName" type="Label" parent="HUD/Intro/Content/Names"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.3, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 32
+text = "Coupé"
+vertical_alignment = 1
+
+[node name="Vs" type="Label" parent="HUD/Intro/Content/Names"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.76, 0.84, 1)
+theme_override_font_sizes/font_size = 22
+text = "VS"
+vertical_alignment = 1
+
+[node name="OpponentName" type="Label" parent="HUD/Intro/Content/Names"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.95, 0.98, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 32
+text = "Auto della Polizia"
+vertical_alignment = 1
+
+[node name="Fade" type="ColorRect" parent="HUD/Intro"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

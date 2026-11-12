@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://noflmkf3acio"]
+
+[ext_resource type="Script" uid="uid://b0wcd8sk4e6ji" path="res://scripts/main_menu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://c5f5rmfnndym" path="res://scripts/background_slideshow.gd" id="2_slideshow"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/coupe.jpg" id="3_car1"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/sports.jpg" id="4_car2"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/sedan.jpg" id="5_car3"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/city.jpg" id="6_car4"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/police.jpg" id="7_car5"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/taxi.jpg" id="8_car6"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/suv.jpg" id="9_car7"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/sedan_50.jpg" id="10_car8"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/wagon_50.jpg" id="11_car9"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/pickup_50.jpg" id="12_car10"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/roadster_50.jpg" id="13_car11"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/convertible_60.jpg" id="14_car12"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/compact_60.jpg" id="15_car13"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/microbus_60.jpg" id="16_car14"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/sports_60.jpg" id="17_car15"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/coupe_70.jpg" id="18_car16"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/hatchback_70.jpg" id="19_car17"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/pickup_70.jpg" id="20_car18"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/sedan_70.jpg" id="21_car19"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/hatchback_80.jpg" id="22_car20"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/sedan_80.jpg" id="23_car21"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/sports_80.jpg" id="24_car22"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/wagon_80.jpg" id="23_car23"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/van_80.jpg" id="24_car24"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/compact_90.jpg" id="25_car25"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/van_90.jpg" id="26_car26"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/hatchback_90.jpg" id="27_car27"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/minivan_90.jpg" id="28_car28"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/offroad_90.jpg" id="29_car29"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/pickup_90.jpg" id="30_car30"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/police_90.jpg" id="31_car31"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/sedan_90.jpg" id="32_car32"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/sports_90.jpg" id="33_car33"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/wagon_90.jpg" id="34_car34"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/suv_90.jpg" id="35_car35"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/taxi_90.jpg" id="36_car36"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/atomic.jpg" id="37_car37"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/compact.jpg" id="38_car38"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/convertible.jpg" id="39_car39"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/coupe_modern.jpg" id="40_car40"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/buggy.jpg" id="41_car41"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/electric.jpg" id="42_car42"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/lowrider.jpg" id="43_car43"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/microcar.jpg" id="44_car44"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/minivan.jpg" id="45_car45"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/muscle.jpg" id="46_car46"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/rally.jpg" id="47_car47"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/wagon.jpg" id="48_car48"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/limo.jpg" id="49_car49"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/tuk_tuk.jpg" id="50_car50"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/classic.jpg" id="51_car51"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/hatchback.jpg" id="52_car52"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/hover.jpg" id="53_car53"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/police_modern.jpg" id="54_car54"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/race_car.jpg" id="55_car55"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/sedan_modern.jpg" id="56_car56"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/sports_modern.jpg" id="57_car57"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/suv_modern.jpg" id="58_car58"]
+[ext_resource type="Texture2D" path="res://images/cars_showcase/taxi_modern.jpg" id="59_car59"]
+[ext_resource type="PackedScene" path="res://scenes/DailyRewardOverlay.tscn" id="11_daily"]
+
+[node name="MainMenu" type="Control" unique_id=233242426]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="." unique_id=38673625]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Backdrop" type="Control" parent="." unique_id=2128646690]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_slideshow")
+images = Array[Texture2D]([ExtResource("3_car1"), ExtResource("4_car2"), ExtResource("5_car3"), ExtResource("6_car4"), ExtResource("7_car5"), ExtResource("8_car6"), ExtResource("9_car7"), ExtResource("10_car8"), ExtResource("11_car9"), ExtResource("12_car10"), ExtResource("13_car11"), ExtResource("14_car12"), ExtResource("15_car13"), ExtResource("16_car14"), ExtResource("17_car15"), ExtResource("18_car16"), ExtResource("19_car17"), ExtResource("20_car18"), ExtResource("21_car19"), ExtResource("22_car20"), ExtResource("23_car21"), ExtResource("24_car22"), ExtResource("23_car23"), ExtResource("24_car24"), ExtResource("25_car25"), ExtResource("26_car26"), ExtResource("27_car27"), ExtResource("28_car28"), ExtResource("29_car29"), ExtResource("30_car30"), ExtResource("31_car31"), ExtResource("32_car32"), ExtResource("33_car33"), ExtResource("34_car34"), ExtResource("35_car35"), ExtResource("36_car36"), ExtResource("37_car37"), ExtResource("38_car38"), ExtResource("39_car39"), ExtResource("40_car40"), ExtResource("41_car41"), ExtResource("42_car42"), ExtResource("43_car43"), ExtResource("44_car44"), ExtResource("45_car45"), ExtResource("46_car46"), ExtResource("47_car47"), ExtResource("48_car48"), ExtResource("49_car49"), ExtResource("50_car50"), ExtResource("51_car51"), ExtResource("52_car52"), ExtResource("53_car53"), ExtResource("54_car54"), ExtResource("55_car55"), ExtResource("56_car56"), ExtResource("57_car57"), ExtResource("58_car58"), ExtResource("59_car59")])
+
+[node name="LayerA" type="TextureRect" parent="Backdrop" unique_id=1682108492]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LayerB" type="TextureRect" parent="Backdrop" unique_id=2009757645]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Timer" type="Timer" parent="Backdrop" unique_id=408596143]
+wait_time = 5.0
+autostart = true
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1849047630]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -136.0
+offset_right = 160.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="Buttons" unique_id=1479330329]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+text = "Gioca"
+
+[node name="DailyRewardButton" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+text = "Ricompensa giornaliera"
+
+[node name="OptionsButton" type="Button" parent="Buttons" unique_id=642737516]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+text = "Opzioni"
+
+[node name="QuitButton" type="Button" parent="Buttons" unique_id=914325911]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 56)
+layout_mode = 2
+text = "Esci"
+
+[node name="Wallet" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -460.0
+offset_top = 18.0
+offset_right = -26.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.92, 0.85, 0.62, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.65)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 17
+text = "CR$ 10.000   ·   CR Gold 50"
+horizontal_alignment = 2
+
+[node name="DailyRewardOverlay" parent="." instance=ExtResource("11_daily")]
+
+[connection signal="timeout" from="Backdrop/Timer" to="Backdrop" method="_on_timer_timeout"]
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
