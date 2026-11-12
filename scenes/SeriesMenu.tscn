@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/series_menu.gd" id="1_series"]
+[ext_resource type="Script" path="res://scripts/series_ladder.gd" id="2_ladder"]
 
 [node name="SeriesMenu" type="Control"]
 layout_mode = 3
@@ -20,67 +21,97 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Menu" type="VBoxContainer" parent="."]
+[node name="Header" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -440.0
-offset_top = -330.0
-offset_right = 440.0
-offset_bottom = 330.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_constants/separation = 16
+
+[node name="BackButton" type="Button" parent="Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "✕"
+
+[node name="ChooseCarButton" type="Button" parent="Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartButton" type="Button" parent="Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 48)
+layout_mode = 2
+
+[node name="SeriesTabs" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 80.0
+offset_right = -20.0
+offset_bottom = 124.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="SeriesTitle" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 140.0
+offset_right = -20.0
+offset_bottom = 208.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.91, 0.32, 0.29, 1)
+theme_override_font_sizes/font_size = 44
+horizontal_alignment = 1
+
+[node name="LadderScroll" type="ScrollContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 220.0
+offset_right = -20.0
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 14
-alignment = 1
 
-[node name="Title" type="Label" parent="Menu"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 34
-text = "SERIE DI GARE"
-horizontal_alignment = 1
-
-[node name="Subtitle" type="Label" parent="Menu"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.66, 0.71, 0.8, 1)
-theme_override_font_sizes/font_size = 14
-text = "Vinci per passare alla gara successiva. Se perdi, ripeti la stessa gara.
-La difficoltà IA cresce gara dopo gara."
-horizontal_alignment = 1
-
-[node name="SeriesButtons" type="GridContainer" parent="Menu"]
+[node name="Ladder" type="Control" parent="LadderScroll"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
-theme_override_constants/h_separation = 16
-theme_override_constants/v_separation = 10
-columns = 3
+script = ExtResource("2_ladder")
 
-[node name="SeriesInfo" type="Label" parent="Menu"]
+[node name="SeriesInfo" type="Label" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -48.0
+offset_right = -20.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0.78, 0.3, 1)
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
-[node name="Races" type="VBoxContainer" parent="Menu"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="StartButton" type="Button" parent="Menu"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 52)
-layout_mode = 2
-text = "Avvia gara"
-
-[node name="BackButton" type="Button" parent="Menu"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-text = "Indietro"
-
-[connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Menu/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Header/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Header/ChooseCarButton" to="." method="_on_choose_car_button_pressed"]
+[connection signal="pressed" from="Header/StartButton" to="." method="_on_start_button_pressed"]

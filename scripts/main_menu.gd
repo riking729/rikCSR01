@@ -2,12 +2,14 @@ extends Control
 
 const ACCENT := Color(1.0, 0.78, 0.3)
 const REWARD_CHECK_SECONDS := 30.0
+const CAR_SELECT_SCENE := "res://scenes/CarSelect.tscn"
 
 @onready var _daily_button: Button = %DailyRewardButton
 @onready var _daily_overlay: Control = $DailyRewardOverlay
 @onready var _wallet_label: Label = %Wallet
 
 var _menu_locked := false
+var _play_pressed := false
 var _check_timer: Timer
 
 
@@ -29,6 +31,14 @@ func _ready() -> void:
 		FirstRun.notice_closed.connect(_on_first_run_notice_closed)
 	else:
 		_start_entry_flow()
+
+	_preload_car_select.call_deferred()
+
+
+func _preload_car_select() -> void:
+	# CarSelect precarica 59 modelli 3D: il caricamento in background
+	# evita il blocco al primo clic su Gioca dopo l'avvio.
+	ResourceLoader.load_threaded_request(CAR_SELECT_SCENE)
 
 
 func _start_entry_flow() -> void:
@@ -91,8 +101,14 @@ func _on_daily_reward_button_pressed() -> void:
 
 
 func _on_play_button_pressed() -> void:
+	if _play_pressed:
+		return
+	_play_pressed = true
 	Series.clear_active()
-	get_tree().change_scene_to_file("res://scenes/CarSelect.tscn")
+	if ResourceLoader.load_threaded_get_status(CAR_SELECT_SCENE) == ResourceLoader.THREAD_LOAD_LOADED:
+		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(CAR_SELECT_SCENE))
+	else:
+		get_tree().change_scene_to_file(CAR_SELECT_SCENE)
 
 
 func _on_options_button_pressed() -> void:
